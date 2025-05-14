@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Motion Graphics Intro</title>
+
+  <!-- 링크 카드  -->
+  <meta property="og:title" content="Haein's Portfolio" />
+  <meta property="og:description" content="문해인의 포트폴리오 스튜디오" />
+  <meta property="og:image" content="https://studiohaein.com/image/main.jpg" />
+  <meta property="og:url" content="https://studiohaein.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- 트위터 카드 (카카오 일부 적용됨) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://studiohaein.com/image/main.jpg">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  
+</head>
+<body>
+  <!-- 소개 섹션 -->
+  <header class="intro-section">
+    <div class="intro-container">
+      <div class="intro-inner">
+        <div class="profile-pic">
+          <img src="image/haein.jpg" alt="내 사진" />
+        </div>
+        <div class="intro-text">
+          <h1>스튜디오 해인</h1>
+          <p>- 한국폴리텍대학 대전캠퍼스 영상디자인과 전공</p>
+        </div>
+      </div>
+      <div class="portfolio-button-wrapper">
+        <a href="#portfolio" class="portfolio-button">포트폴리오 보러가기</a>
+        <a href="career.html" class="portfolio-button">커리어 보러가기</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 메인 영상 섹션 -->
+  <section class="main-video-section">
+  <div class="main-video-container">
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);">
+      <iframe 
+        src="https://youtu.be/BREmA6b-F_g" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen 
+        style="position: absolute; top:0; left:0; width:100%; height:100%;">
+      </iframe>
+    </div>
+    <h3>Motion Graphics 메인 영상</h3>
+    <p>영상 디자인을 대표하는 인트로 클립입니다. <br>영상 디자인의 전체적인 톤과 방향을 보여줍니다.</p>
+  </div>
+</section>
+
+  <!-- 포트폴리오 섹션 -->
+  <section id="portfolio">
+    <h2>포트폴리오</h2>
+    <div class="tab-buttons">
+      <button class="tab-button active" onclick="filterPortfolio('all', event)">🔷 모든 작업</button>
+      <button class="tab-button" onclick="filterPortfolio('personal', event)">🔹 개인 작업</button>
+      <button class="tab-button" onclick="filterPortfolio('team', event)">🔸 팀 작업</button>
+    </div>
+    <!-- 개인 작업 -->
+    <div class="portfolio-items">
+      <div class="portfolio-card personal">
+        <a href="personal_video1.html">
+          <img src="image/personal1_intro.jpg" alt="썸네일" />
+          <h4>Motion Graphics Intro</h4>
+          <p>모션그래픽을 이용한 포트폴리오 인트로</p>
+        </a>
+      </div>
+      <!-- 팀 작업 -->
+      <div class="portfolio-card team">
+        <a href="team_video2.html">
+          <img src="image/team2_donggu again.jpg" alt="썸네일" />
+          <h4>Dong-gu Again</h4>
+          <p>고독을 즐기는 청년이 대전 동구를 누빈다</p>
+        </a>
+      </div>
+      <div class="portfolio-card team">
+        <a href="team_video1.html">
+          <img src="image/team1_oneday.jpg" alt="썸네일" />
+          <h4>하루체험</h4>
+          <p>하루체험 어플리케이션 홍보영상</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>📧 이메일: <a href="mailto:mhi0308@naver.com">mhi0308@naver.com</a></p>
+    <p>
+      🔗 SNS:
+      <a href="https://blog.naver.com/mhi0308" target="_blank">Blog</a> |
+      <a href="https://www.youtube.com/@%EC%9D%B8%EB%8D%B4%EC%A0%80" target="_blank">YouTube</a>
+    </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
