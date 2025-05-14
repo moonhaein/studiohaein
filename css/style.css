@@ -156,23 +156,49 @@ section {
 }
 
 .tab-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px; /* 간격 추가 */
   margin-top: 30px;
   margin-bottom: 20px;
 }
 
+/* 모바일에서는 버튼을 세로 정렬로 쌓기 */
+@media (max-width: 480px) {
+  .tab-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* 간격 약간 좁게 */
+  }
+}
+
 .tab-button {
   padding: 10px 20px;
-  margin: 0 8px;
   background-color: #ddd;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  flex-shrink: 0; /* 버튼 사이즈 줄어드는 것 방지 */
+  white-space: nowrap;
 }
 
 .tab-button.active {
   background-color: #333;
   color: white;
+}
+
+@media (max-width: 480px) {
+  .tab-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-button {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 .portfolio-items {
