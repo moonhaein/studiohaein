@@ -5,6 +5,10 @@ header {
   text-align: center;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -247,4 +251,30 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* 맨위로 스크롤 */
+#scrollToTop {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 40px;  /* ↓ 원크기 */
+  height: 40px;  /* ↓ 원크기 */
+  background-color: white;
+  background-image: url('../image/up-arrow.jpg'); /* 본인 이미지 경로 */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  /* 항상 보이게 수정 */
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, filter 0.3s ease;
+  z-index: 999;
+}
+
+#scrollToTop:hover {
+  filter: brightness(85%);
 }

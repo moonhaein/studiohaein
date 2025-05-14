@@ -19,3 +19,8 @@ function filterPortfolio(category, event = null) {
 window.addEventListener('DOMContentLoaded', () => {
   filterPortfolio('all');
 });
+
+// 버튼 클릭 시 부드럽게 맨 위로 스크롤
+document.getElementById("scrollToTop").addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
