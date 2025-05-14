@@ -282,8 +282,8 @@ footer a:hover {
 /* 맨위로 스크롤 */
 #scrollToTop {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+  bottom: 30px;
+  right: 30px;
   width: 40px;  /* ↓ 원크기 */
   height: 40px;  /* ↓ 원크기 */
   background-color: white;
