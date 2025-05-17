@@ -60,6 +60,21 @@ body {
       font-style: italic;
     }
 
+    .btn-download {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #222;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-download:hover {
+  background-color: #444;
+}
+
     footer {
       margin-top: 60px;
       background-color: #f0f0f0;
