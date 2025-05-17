@@ -8,51 +8,56 @@
 </head>
 <body>
 
-  <!-- 헤더 -->
-  <header>
-    <h1>문해인의 포트폴리오</h1>
-    <p>영상디자인을 전공하고 다양한 편집 프로젝트를 진행하고 있습니다.</p>
-    <a href="index.html" class="home-button">홈으로 이동하기</a>
+  <!-- 상단 헤더 -->
+  <header class="video-header">
+    <div class="logo-area">
+      <a href="index.html">
+        <img src="image/logo.png" alt="로고" class="logo-img" />
+      </a>
+    </div>
   </header>
 
-  <!-- 메인 콘텐츠 -->
-  <main>
-    <!-- 왼쪽: 영상 + 제목/제작기간 -->
+  <main class="video-main">
+    <!-- 왼쪽 영상 및 설명 -->
     <div class="video-section">
-  <div class="youtube-wrapper">
-    <iframe 
-      src="https://www.youtube.com/embed/hYVz9GSe0vo?si=9T-iMP8xx7qua4ya" 
-      title="YouTube video"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
-  <div class="video-title">Motion Graphics Intro</div>
-  <div class="video-date">제작 기간: 2024.06.</div>
-</div>
-
-    <!-- 오른쪽: 설명 + 사용 툴 -->
-    <div class="description-section">
-      <p><b>👥 작업형태: </b>개인 프로젝트</p>
+      <div class="youtube-wrapper">
+        <iframe src="https://www.youtube.com/embed/hYVz9GSe0vo?si=R4SC5qlk8PZQc3SN"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-title">Motion Graphics Intro</div>
+      <div class="video-date">제작 기간: 2024.06.</div>
+      <div class="video-description">
+        <p><b>👥 작업형태: </b>개인 프로젝트</p>
       
       <p><b>🎯 프로젝트 개요:</b></br>
       모션그래픽을 이용하여 포트폴리오 인트로를 제작하였습니다. 저의 모습을 캐릭터로 만들어 리깅을 통한 움직임을 준 것이 영상의 포인트입니다.</p>
       
       <p><b>🛠 사용 툴 및 기술: </b></br>
         Illustrator, After Effects</p>
-    </div>
-  </main>
 
-  <!-- 푸터 -->
-  <footer>
-    <p>📧 이메일</p>
-    <p>mhi0308@naver.com</p>
-    <p>🔗 SNS</p>
+      </div>
+    </div>
+
+    <!-- 오른쪽 추천영상 -->
+    <aside class="recommend-section">
+  <h3>🎬 다른 영상 보기</h3>
+  <div class="recommend-list" id="recommendList">
+    <!-- JavaScript가 여기에 추천 카드를 삽입합니다 -->
+  </div>
+</aside>
+  </main>
+<script src="js/recommend.js"></script>
+</body>
+
+<footer>
+    <p>📧 이메일: <a href="mailto:mhi0308@naver.com">mhi0308@naver.com</a></p>
     <p>
+      🔗 SNS:
       <a href="https://blog.naver.com/mhi0308" target="_blank">Blog</a> |
       <a href="https://www.youtube.com/@%EC%9D%B8%EB%8D%B4%EC%A0%80" target="_blank">YouTube</a>
-      </p>
+    </p>
   </footer>
-
-</body>
 </html>

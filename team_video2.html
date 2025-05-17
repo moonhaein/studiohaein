@@ -8,32 +8,29 @@
 </head>
 <body>
 
-  <!-- 헤더 -->
-  <header>
-    <h1>문해인의 포트폴리오</h1>
-    <p>영상디자인을 전공하고 다양한 편집 프로젝트를 진행하고 있습니다.</p>
-    <a href="index.html" class="home-button">홈으로 이동하기</a>
+  <!-- 상단 헤더 -->
+  <header class="video-header">
+    <div class="logo-area">
+      <a href="index.html">
+        <img src="image/logo.png" alt="로고" class="logo-img" />
+      </a>
+    </div>
   </header>
 
-  <!-- 메인 콘텐츠 -->
-  <main>
-    <!-- 왼쪽: 영상 + 제목/제작기간 -->
+  <main class="video-main">
+    <!-- 왼쪽 영상 및 설명 -->
     <div class="video-section">
-  <div class="youtube-wrapper">
-    <iframe 
-      src="https://www.youtube.com/embed/BREmA6b-F_g?si=SftFKzFSShFN5tUU" 
-      title="YouTube video"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
-  <div class="video-title">Dong-gu Again</div>
-  <div class="video-date">제작 기간: 2024.05. ~ 2024.06.</div>
-</div>
-
-    <!-- 오른쪽: 설명 + 사용 툴 -->
-    <div class="description-section">
-      <p><b>👥 작업형태: </b>팀 프로젝트 (총 6명)</p>
+      <div class="youtube-wrapper">
+        <iframe src="https://www.youtube.com/embed/BREmA6b-F_g?si=SftFKzFSShFN5tUU"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-title">Dong-gu Again</div>
+      <div class="video-date">제작 기간: 2024.05. ~ 2024.06.</div>
+      <div class="video-description">
+        <p><b>👥 작업형태: </b>팀 프로젝트 (총 6명)</p>
       
       <p><b>🎯 프로젝트 개요:</b></br>
       우리들의 동네인 동구의 빈티지한 장소를 소개함으로서 대전 동구가 촌스러운 곳이 아닌 충분히 힙하고 핫한 곳이 많다는 것을 알리기 위해 만든 영상입니다.</p>
@@ -44,19 +41,26 @@
       <p><b>👤 내 역할 및 기여도:</b></br>
         - 기획 (5인 중 1인): 아이디어 제시 및 장소 탐색</br>
         - 편집 (3인 중 1인): 촬영 영상 정리 및 컷편집</p>
+      </div>
     </div>
-  </main>
 
-  <!-- 푸터 -->
-  <footer>
-    <p>📧 이메일</p>
-    <p>mhi0308@naver.com</p>
-    <p>🔗 SNS</p>
+    <!-- 오른쪽 추천영상 -->
+    <aside class="recommend-section">
+  <h3>🎬 다른 영상 보기</h3>
+  <div class="recommend-list" id="recommendList">
+    <!-- JavaScript가 여기에 추천 카드를 삽입합니다 -->
+  </div>
+</aside>
+  </main>
+<script src="js/recommend.js"></script>
+</body>
+
+<footer>
+    <p>📧 이메일: <a href="mailto:mhi0308@naver.com">mhi0308@naver.com</a></p>
     <p>
+      🔗 SNS:
       <a href="https://blog.naver.com/mhi0308" target="_blank">Blog</a> |
       <a href="https://www.youtube.com/@%EC%9D%B8%EB%8D%B4%EC%A0%80" target="_blank">YouTube</a>
-      </p>
+    </p>
   </footer>
-
-</body>
 </html>
