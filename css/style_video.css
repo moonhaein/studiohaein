@@ -33,6 +33,7 @@ body {
 /* 왼쪽 영상 섹션 */
 .video-section {
   flex: 1 1 800px;
+  order: 1;
 }
 
 .youtube-wrapper {
@@ -74,6 +75,7 @@ body {
 .recommend-section {
   flex: 0 0 240px; /* 고정 폭 지정 */
   max-width: 240px;
+  order: 2;
 }
 
 .recommend-section h3 {
@@ -138,13 +140,26 @@ footer a:hover {
 @media (max-width: 768px) {
   .video-main {
     flex-direction: column;
-  }
-
-  .recommend-section {
-    order: 2;
+    align-items: center;
   }
 
   .video-section {
+    width: 100%;
     order: 1;
+  }
+
+  .recommend-section {
+    width: 100%;
+    max-width: 320px;
+    margin-top: 40px;
+    order: 2;
+  }
+
+  .recommend-list {
+    align-items: center;
+  }
+
+  .recommend-card {
+    width: 100%;
   }
 }
