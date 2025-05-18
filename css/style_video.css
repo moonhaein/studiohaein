@@ -146,13 +146,15 @@ footer a:hover {
   .video-section {
     width: 100%;
     order: 1;
+    margin-bottom: 20px;
   }
 
   .recommend-section {
     width: 100%;
     max-width: 320px;
-    margin-top: 20px;
+    margin-top: 20px; /* 여기서 조절 */
     order: 2;
+    text-align: center;
   }
 
   .recommend-list {
