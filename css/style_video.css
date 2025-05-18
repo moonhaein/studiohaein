@@ -139,6 +139,25 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* PC용 레이아웃 개선 (768px 이상) */
+@media (min-width: 769px) {
+  .video-main {
+    flex-direction: row; /* 기본값이지만 명시적으로 지정 */
+    align-items: flex-start;
+  }
+
+  .video-section {
+    flex: 1; /* 자동으로 남은 공간 차지 */
+    max-width: calc(100% - 280px); /* 추천영역 포함 여백 확보 */
+  }
+
+  .recommend-section {
+    flex: 0 0 240px;
+    max-width: 240px;
+    margin-left: auto;
+  }
+}
+
 /* 반응형 대응 */
 @media (max-width: 768px) {
   .video-main {
