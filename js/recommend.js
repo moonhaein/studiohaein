@@ -12,10 +12,15 @@ const portfolioVideos = [
     thumbnail: "image/team2_donggu again.jpg"
   },
   {
+    title: "Kcar",
+    url: "team_video3.html",
+    thumbnail: "image/team3_kcar.jpg"
+  },
+  {
     title: "Motion Graphics",
     url: "personal_video1.html",
     thumbnail: "image/personal1_intro.jpg"
-  }
+  },
   // 🔽 새 영상 추가 시 여기에 계속 추가
   // {
   //   title: "새 영상 제목",
