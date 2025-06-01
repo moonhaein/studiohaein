@@ -12,9 +12,14 @@ const portfolioVideos = [
     thumbnail: "image/team2_donggu again.jpg"
   },
   {
-    title: "Kcar",
+    title: "청춘은 차와 함께",
     url: "team_video3.html",
     thumbnail: "image/team3_kcar.jpg"
+  },
+  {
+    title: "이야기, 소제",
+    url: "team_video4.html",
+    thumbnail: "image/team4_soje.jpg"
   },
   {
     title: "Motion Graphics",
@@ -39,7 +44,10 @@ function insertRandomRecommendations() {
   const recommendContainer = document.getElementById("recommendList");
   if (!recommendContainer) return;
 
-  const shuffled = shuffleArray([...portfolioVideos]);
+  const currentPage = location.pathname.split("/").pop();
+
+  const filtered = portfolioVideos.filter(video => video.url !== currentPage);
+  const shuffled = shuffleArray(filtered);
   const selected = shuffled.slice(0, 3);
 
   selected.forEach(video => {
