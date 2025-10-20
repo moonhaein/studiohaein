@@ -54,7 +54,7 @@ body {
   border: none;
 }
 
-instagram-wrapper {
+.instagram-wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 비율 */
   height: 0;
@@ -63,7 +63,7 @@ instagram-wrapper {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-instagram-wrapper iframe {
+.video-date iframe {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
@@ -183,10 +183,6 @@ footer a:hover {
     gap: 12px;
   }
 
-.video-main {
-    flex-direction: column;
-  }
-
   .video-section {
     width: 100%;
     order: 1; /* 영상이 먼저 */
@@ -194,7 +190,7 @@ footer a:hover {
 
   .recommend-section {
     order: 2; /* 추천 영상이 나중 */
-    margin-top: 0; !important;
+    margin-top: 0 !important;
     max-width: 100%;
     width: 100%;
     align-self: flex-start;
