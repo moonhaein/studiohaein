@@ -26,6 +26,11 @@ const portfolioVideos = [
     url: "personal_video1.html",
     thumbnail: "image/personal1_intro.jpg"
   },
+   {
+    title: "오월드_버드랜드",
+    url: "personal_video2.html",
+    thumbnail: "image/personal2_birdland.jpg"
+  },
   // 🔽 새 영상 추가 시 여기에 계속 추가
   // {
   //   title: "새 영상 제목",
