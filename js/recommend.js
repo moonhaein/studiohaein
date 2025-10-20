@@ -22,6 +22,11 @@ const portfolioVideos = [
     thumbnail: "image/team4_soje.jpg"
   },
   {
+    title: "오월드_미어캣",
+    url: "team_video5.html",
+    thumbnail: "image/team5_meerkat.jpg"
+  },
+  {
     title: "Motion Graphics",
     url: "personal_video1.html",
     thumbnail: "image/personal1_intro.jpg"
