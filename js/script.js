@@ -1,58 +1,303 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const buttons = document.querySelectorAll('.tab-button');
-  const items = document.querySelectorAll('.portfolio-card');
+/* =========================================================
+   STUDIO HAEIN - Front JS
+   - index.html : Portfolio(6), What I do, Story(4) rendering
+   - portfolio.html : Full list + filter
+   - story.html : List
+   ========================================================= */
 
-  function filterPortfolio(category, clickedButton) {
-    // 버튼 상태 초기화
-    buttons.forEach(btn => {
-      btn.classList.remove('active');
+// 1) 데이터만 수정하면 섹션이 자동으로 바뀌도록 배열 기반으로 구성했습니다.
 
-      const iconSpan = btn.querySelector('.icon');
-      if (btn.textContent.includes('모든작업') || btn.textContent.includes('개인작업')) {
-        iconSpan.textContent = '🔹';
-      } else if (btn.textContent.includes('팀작업')) {
-        iconSpan.textContent = '🔸';
-      }
-    });
+const PORTFOLIO = [
+  {
+    id: "p7",
+    title: "오월드_미어캣",
+    desc: "오월드 버드랜드 · 미어캣 콘텐츠",
+    thumb: "image/team5_meerkat.jpg",
+    href: "team_video5.html",
+    category: "video",
+    date: "2026-01-01",
+  },
+  {
+    id: "p6",
+    title: "오월드_버드랜드",
+    desc: "오월드 버드랜드 콘텐츠",
+    thumb: "image/personal2_birdland.jpg",
+    href: "personal_video2.html",
+    category: "video",
+    date: "2025-12-01",
+  },
+  {
+    id: "p5",
+    title: "이야기, 소제",
+    desc: "소제동의 과거, 현재 그리고 미래",
+    thumb: "image/team4_soje.jpg",
+    href: "team_video4.html",
+    category: "video",
+    date: "2025-11-10",
+  },
+  {
+    id: "p4",
+    title: "청춘은 차와 함께",
+    desc: "케이카 영상 공모전 제출작품",
+    thumb: "image/team3_kcar.jpg",
+    href: "team_video3.html",
+    category: "video",
+    date: "2025-10-01",
+  },
+  {
+    id: "p3",
+    title: "Dong-gu Again",
+    desc: "고독을 즐기는 청년이 대전 동구를 누빈다",
+    thumb: "image/team2_donggu again.jpg",
+    href: "team_video2.html",
+    category: "video",
+    date: "2025-09-01",
+  },
+  {
+    id: "p2",
+    title: "하루체험",
+    desc: "하루체험 어플리케이션 홍보영상",
+    thumb: "image/team1_oneday.jpg",
+    href: "team_video1.html",
+    category: "video",
+    date: "2025-08-01",
+  },
+  {
+    id: "p1",
+    title: "Motion Graphics Intro",
+    desc: "모션그래픽을 이용한 포트폴리오 인트로",
+    thumb: "image/personal1_intro.jpg",
+    href: "personal_video1.html",
+    category: "video",
+    date: "2025-07-01",
+  },
+];
 
-    // 클릭된 버튼 활성화
-    clickedButton.classList.add('active');
+const WHAT_I_DO = [
+  { icon: "🎬", title: "Video Editing", desc: "컷 편집 · 색보정 · 사운드" },
+  { icon: "✨", title: "Motion Graphic", desc: "타이포 · 인포 · 연출" },
+  { icon: "🧩", title: "Content Planning", desc: "기획 · 콘티 · 스토리" },
+  { icon: "🖥️", title: "Design", desc: "썸네일 · 카드뉴스" },
+  { icon: "📣", title: "SNS", desc: "운영 · 캠페인 제작" },
+  { icon: "🛠️", title: "Web", desc: "간단한 퍼블리싱" },
+];
 
-    const clickedIcon = clickedButton.querySelector('.icon');
-    if (category === 'all' || category === 'personal') {
-      clickedIcon.textContent = '🔷';
-    } else if (category === 'team') {
-      clickedIcon.textContent = '🔶';
-    }
+// Story는 지금은 샘플입니다. (링크를 실제 게시물로 바꾸면 됩니다.)
+const STORY = [
+  {
+    id: "s4",
+    title: "작업 기록 예시 4",
+    excerpt: "작업 과정과 배운 점을 짧게 정리해요.",
+    cover: "image/main.jpg",
+    href: "story.html",
+    date: "2026-01-20",
+  },
+  {
+    id: "s3",
+    title: "작업 기록 예시 3",
+    excerpt: "기획부터 결과물까지 흐름을 남겨요.",
+    cover: "image/team4_soje.jpg",
+    href: "story.html",
+    date: "2026-01-10",
+  },
+  {
+    id: "s2",
+    title: "작업 기록 예시 2",
+    excerpt: "모션그래픽 디테일을 체크한 포인트.",
+    cover: "image/personal1_intro.jpg",
+    href: "story.html",
+    date: "2025-12-30",
+  },
+  {
+    id: "s1",
+    title: "작업 기록 예시 1",
+    excerpt: "이 프로젝트에서 가장 어려웠던 점.",
+    cover: "image/team2_donggu again.jpg",
+    href: "story.html",
+    date: "2025-12-15",
+  },
+];
 
-    // 카드 필터링
-    items.forEach(item => {
-      if (category === 'all' || item.classList.contains(category)) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  }
+/* -----------------------------
+   Helpers
+------------------------------ */
 
-  // ✅ 첫 로딩 시 "모든작업" 자동 클릭 처리
-  const defaultButton = document.querySelector('.tab-button.active');
-  if (defaultButton) {
-    filterPortfolio('all', defaultButton);
-  }
+function qs(sel) { return document.querySelector(sel); }
+function qsa(sel) { return Array.from(document.querySelectorAll(sel)); }
 
-  // 버튼 클릭 이벤트 연결
-  buttons.forEach(button => {
-    button.addEventListener('click', function () {
-      const category = this.textContent.includes('모든작업') ? 'all' :
-                       this.textContent.includes('개인작업') ? 'personal' :
-                       'team';
-      filterPortfolio(category, this);
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function formatDate(iso) {
+  // 2026-01-20 -> 2026.01.20
+  if (!iso) return "";
+  const [y, m, d] = iso.split("-");
+  if (!y || !m || !d) return "";
+  return `${y}.${m}.${d}`;
+}
+
+/* -----------------------------
+   Renderers
+------------------------------ */
+
+function renderPortfolioCards(list, mountEl) {
+  mountEl.innerHTML = list
+    .map((p) => {
+      return `
+        <a class="portfolio-card" href="${escapeHtml(p.href)}" data-category="${escapeHtml(p.category)}" aria-label="${escapeHtml(p.title)}">
+          <img class="portfolio-thumb" src="${escapeHtml(p.thumb)}" alt="${escapeHtml(p.title)} 썸네일" loading="lazy" />
+          <div class="portfolio-body">
+            <p class="portfolio-kicker">${escapeHtml((p.category || "").toUpperCase())} · ${escapeHtml(formatDate(p.date))}</p>
+            <h3 class="portfolio-title">${escapeHtml(p.title)}</h3>
+            <p class="portfolio-desc">${escapeHtml(p.desc)}</p>
+          </div>
+        </a>
+      `;
+    })
+    .join("");
+}
+
+function renderWhatIDo(list, mountEl) {
+  mountEl.innerHTML = list
+    .map((s) => {
+      return `
+        <div class="icon-block" role="listitem">
+          <div class="icon-circle" aria-hidden="true"><span>${escapeHtml(s.icon)}</span></div>
+          <p class="icon-title">${escapeHtml(s.title)}</p>
+          <p class="icon-desc">${escapeHtml(s.desc)}</p>
+        </div>
+      `;
+    })
+    .join("");
+}
+
+function renderStoryRow(list, mountEl) {
+  mountEl.innerHTML = list
+    .map((s) => {
+      return `
+        <a class="story-card" href="${escapeHtml(s.href)}" aria-label="${escapeHtml(s.title)}">
+          <div class="story-media">
+            <img src="${escapeHtml(s.cover)}" alt="" loading="lazy" />
+          </div>
+          <h3 class="story-title">${escapeHtml(s.title)}</h3>
+        </a>
+      `;
+    })
+    .join("");
+}
+
+function renderStoryList(list, mountEl) {
+  mountEl.innerHTML = list
+    .map((s) => {
+      return `
+        <a class="story-list-item" href="${escapeHtml(s.href)}" aria-label="${escapeHtml(s.title)}">
+          <div class="story-list-cover">
+            <img src="${escapeHtml(s.cover)}" alt="" loading="lazy" />
+          </div>
+          <div class="story-list-body">
+            <p class="story-meta">${escapeHtml(formatDate(s.date))}</p>
+            <h3 class="story-title">${escapeHtml(s.title)}</h3>
+            <p class="story-excerpt">${escapeHtml(s.excerpt)}</p>
+          </div>
+        </a>
+      `;
+    })
+    .join("");
+}
+
+/* -----------------------------
+   Portfolio filter (portfolio.html)
+------------------------------ */
+
+function bindPortfolioFilter() {
+  const listEl = qs("#portfolioList");
+  const btns = qsa(".filter-btn");
+  if (!listEl || btns.length === 0) return;
+
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.getAttribute("data-filter") || "all";
+      btns.forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+
+      qsa("#portfolioList .portfolio-card").forEach((card) => {
+        const cat = card.getAttribute("data-category");
+        const show = filter === "all" || filter === cat;
+        card.style.display = show ? "block" : "none";
+      });
     });
   });
+}
 
-  // 🔝 맨 위로 버튼
-  document.getElementById("scrollToTop").addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+/* -----------------------------
+   Scroll to top
+------------------------------ */
+
+function bindScrollToTop() {
+  const btn = qs("#scrollToTop");
+  if (!btn) return;
+  btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+}
+
+
+/* -----------------------------
+   Header transparency (home)
+------------------------------ */
+function bindHeaderScroll() {
+  const header = qs(".site-header");
+  const isHome = document.body.classList.contains("page-home");
+  if (!header || !isHome) return;
+
+  const onScroll = () => {
+    if (window.scrollY > 12) header.classList.add("is-solid");
+    else header.classList.remove("is-solid");
+  };
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
+
+
+/* -----------------------------
+   Init
+------------------------------ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  // index.html
+  const portfolioGrid = qs("#portfolioGrid");
+  if (portfolioGrid) {
+    renderPortfolioCards(PORTFOLIO.slice(0, 6), portfolioGrid);
+  }
+
+  const whatIDoRow = qs("#whatIDoRow");
+  if (whatIDoRow) {
+    renderWhatIDo(WHAT_I_DO, whatIDoRow);
+  }
+
+  const storyRow = qs("#storyRow");
+  if (storyRow) {
+    renderStoryRow(STORY.slice(0, 4), storyRow);
+  }
+
+  // portfolio.html
+  const portfolioList = qs("#portfolioList");
+  if (portfolioList) {
+    renderPortfolioCards(PORTFOLIO, portfolioList);
+    bindPortfolioFilter();
+  }
+
+  // story.html
+  const storyList = qs("#storyList");
+  if (storyList) {
+    renderStoryList(STORY, storyList);
+  }
+
+  bindHeaderScroll();
+  bindScrollToTop();
 });
