@@ -9,24 +9,6 @@
 
 const PORTFOLIO = [
   {
-    id: "p7",
-    title: "오월드_미어캣",
-    desc: "오월드 버드랜드 · 미어캣 콘텐츠",
-    thumb: "image/team5_meerkat.jpg",
-    href: "team_video5.html",
-    category: "video",
-    date: "2026-01-01",
-  },
-  {
-    id: "p6",
-    title: "오월드_버드랜드",
-    desc: "오월드 버드랜드 콘텐츠",
-    thumb: "image/personal2_birdland.jpg",
-    href: "personal_video2.html",
-    category: "video",
-    date: "2025-12-01",
-  },
-  {
     id: "p5",
     title: "이야기, 소제",
     desc: "소제동의 과거, 현재 그리고 미래",
@@ -79,7 +61,7 @@ const WHAT_I_DO = [
   { icon: "🧩", title: "Content Planning", desc: "기획 · 콘티 · 스토리" },
   { icon: "🖥️", title: "Design", desc: "썸네일 · 카드뉴스" },
   { icon: "📣", title: "SNS", desc: "운영 · 캠페인 제작" },
-  { icon: "🛠️", title: "Web", desc: "간단한 퍼블리싱" },
+  // { icon: "🛠️", title: "Web", desc: "간단한 퍼블리싱" },
 ];
 
 // Story는 지금은 샘플입니다. (링크를 실제 게시물로 바꾸면 됩니다.)

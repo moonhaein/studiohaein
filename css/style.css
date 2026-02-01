@@ -363,15 +363,27 @@ body:not(.page-home) .nav-link,
 }
 
 /* What I do */
-.icon-row {
+.icon-row{
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 14px;
+
+  /* 아이템 개수/화면 크기에 따라 자동으로 칸 수가 바뀜 */
+  grid-template-columns: repeat(auto-fit, minmax(140px, 160px));
+
+  /* 남는 공간이 생기면 아이템 묶음을 가운데로 */
+  justify-content: center;
+}
+
+@media (max-width: 520px){
+  .icon-row{
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+  }
 }
 
 .icon-block {
   padding: 10px 6px;
   text-align: center;
+  margin: 0 auto;
 }
 
 .icon-circle {
@@ -769,4 +781,193 @@ body:not(.page-home) .nav-link,
   .about-title { font-size: 34px; }
   .about-grid { grid-template-columns: 1fr; }
   .about-cta { justify-content: center; }
+}
+
+
+/* =========================
+   TONE SYSTEM (Unified)
+   ========================= */
+:root{
+  --bg: #ffffff;
+  --surface: #f6f8ff;
+  --text: #0b1220;
+  --muted: rgba(11,18,32,.72);
+  --muted2: rgba(11,18,32,.52);
+  --line: rgba(11,18,32,.12);
+
+  --primary: #2e5bff;
+  --primary-dk: #0b1b3a;
+
+  --radius: 18px;
+  --shadow: 0 12px 30px rgba(11,18,32,.12);
+
+  --section-py: 96px;
+  --container: 1120px;
+}
+
+/* Global tone */
+body{ background: var(--bg); color: var(--text); }
+.section{ padding: var(--section-py) 0; }
+
+.section-title, .page-title{
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+.section-desc{ color: var(--muted); line-height: 1.8; }
+
+.portfolio-card,
+.story-list-item{
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: none;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.portfolio-card:hover,
+.story-list-item:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: rgba(46,91,255,.22);
+}
+
+.btn{ border-radius: 999px; font-weight: 700; }
+.btn-primary{
+  background: var(--primary-dk);
+  border: 1px solid rgba(255,255,255,.16);
+}
+.btn-primary:hover{ transform: translateY(-1px); }
+
+/* What I Do (services) — dark band + white text */
+#services{
+  background: var(--primary-dk) !important;
+  color: #fff;
+}
+#services .section-title{ color:#fff; }
+#services .section-desc,
+#services .icon-desc{ color: rgba(255,255,255,.82); }
+#services .icon-title{ color:#fff; }
+
+#services .icon-circle{
+  background:#fff;
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+}
+
+.site-footer{
+  background: #1f1f1f;          /* 메인 배경 */
+  color: rgba(255,255,255,.88); /* 기본 글자색 */
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.site-footer a{
+  color: rgba(255,255,255,.88);
+}
+
+.site-footer a:hover{
+  color: #ffffff;
+}
+
+.site-footer .footer-title{
+  color: rgba(255,255,255,.92);
+}
+
+.site-footer .footer-email{
+  color: #ffffff;
+}
+
+/* =========================
+   FOOTER dark + readable
+   ========================= */
+.site-footer{
+  background: #1f1f1f;
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.78); /* 기본 설명글 톤 */
+}
+
+/* 푸터 문장(설명글) = 연한 회색 */
+.site-footer p,
+.site-footer .footer-title,
+.site-footer .footer-text{
+  color: rgba(255,255,255,.70);
+}
+
+/* 이메일 = 흰색 + 밑줄(원하면) */
+.site-footer .footer-email,
+.site-footer a[href^="mailto"]{
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* 링크(일반)도 잘 보이게 */
+.site-footer a{
+  color: rgba(255,255,255,.88);
+}
+.site-footer a:hover{
+  color: #ffffff;
+}
+
+/* 오른쪽 버튼(예: 뉴스레터 구독 같은 버튼)이 안 보일 때 */
+.site-footer .btn,
+.site-footer button,
+.site-footer input[type="submit"]{
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,.35);
+}
+
+/* 혹시 .footer-btn 같은 클래스 썼다면 이것도 같이 */
+.site-footer .footer-btn{
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,.35);
+}
+.site-footer .btn:hover,
+.site-footer .footer-btn:hover{
+  border-color: rgba(255,255,255,.7);
+}
+
+/* ===== Footer (dark) ===== */
+.site-footer{
+  background: #1f1f1f;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+/* 왼쪽 설명글 = 연한 회색 */
+.site-footer .footer-copy{
+  margin: 0;
+  color: rgba(255,255,255,.68);
+  line-height: 1.7;
+}
+
+/* 이메일 = 흰색 */
+.site-footer .footer-email{
+  display: inline-block;
+  margin-top: 10px;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* 오른쪽 링크 버튼(중요): 기본이 흰색으로 뜨는 문제 해결 */
+.site-footer .footer-links a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  background: transparent !important;                 /* ✅ 기본 흰색 제거 */
+  color: rgba(255,255,255,.88) !important;            /* ✅ 글자 보이게 */
+  border: 1px solid rgba(255,255,255,.28) !important; /* ✅ 테두리 보이게 */
+
+  transition: background .18s ease, border-color .18s ease, color .18s ease;
+}
+
+/* hover */
+.site-footer .footer-links a:hover{
+  background: rgba(255,255,255,.08) !important;
+  border-color: rgba(255,255,255,.55) !important;
+  color: #fff !important;
 }
