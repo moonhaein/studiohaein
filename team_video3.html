@@ -4,18 +4,24 @@
   <meta charset="UTF-8" />
   <title>Kcar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style_video.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style_video.css">
 </head>
 <body>
 
   <!-- 상단 헤더 -->
-  <header class="video-header">
-    <div class="logo-area">
-      <a href="index.html">
-        <img src="image/logo.png" alt="로고" class="logo-img" />
-      </a>
-    </div>
-  </header>
+  <header aria-label="사이트 상단 메뉴" class="site-header is-solid">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="스튜디오해인 홈">
+      <img src="image/logo_color.png" alt="스튜디오해인 로고" />
+    </a>
+
+    <nav class="nav" aria-label="메인 메뉴">
+      <a class="nav-link" href="about.html">ABOUT</a>
+      <a class="nav-link" href="portfolio.html">PORTFOLIO</a>
+    </nav>
+  </div>
+</header>
 
   <main class="video-main">
     <!-- 왼쪽 영상 및 설명 -->

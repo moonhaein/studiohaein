@@ -112,10 +112,12 @@ body:not(.page-home) .nav-link,
   color: #0b1220;
 }
 
-.nav-link.is-active {
-  background: rgba(46, 91, 255, 0.10);
-  border: 1px solid rgba(46, 91, 255, 0.18);
-  color: #0b1220;
+/* Remove pill highlight on active nav item */
+.nav-link.is-active,
+.nav-link[aria-current="page"]{
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
 }
 
 /* Hero */
@@ -362,6 +364,11 @@ body:not(.page-home) .nav-link,
   line-height: 1.6;
 }
 
+/* Portfolio page: bring content up a bit */
+body.portfolio-page .section{
+  padding-top: 70px;  /* 기본보다 위로 올림 (60~80 사이로 조절) */
+}
+
 /* SKILL */
 .icon-row{
   display: flex;
@@ -500,7 +507,7 @@ body:not(.page-home) .nav-link,
 }
 
 .about-hero{
-  padding: 120px 0 80px;
+  padding: 80px 0 80px;
 }
 
 .about-wrap{
@@ -868,7 +875,7 @@ body{ background: var(--bg); color: var(--text); }
 
 /* ===== Intro (before portfolio) ===== */
 .intro{
-  padding: 90px 0 40px; /* 위는 여유, 아래는 포트폴리오와 자연스럽게 */
+  padding: 60px 0 80px; /* 위는 여유, 아래는 포트폴리오와 자연스럽게 */
 }
 
 .intro-inner{
@@ -932,4 +939,16 @@ body{ background: var(--bg); color: var(--text); }
   .intro-title{
     font-size: 30px;
   }
+}
+
+:root{ --header-h: 72px; }
+.site-header{ height: var(--header-h); }
+
+/* 홈 제외하고만 적용 */
+body:not(.page-home){
+  padding-top: var(--header-h);
+}
+
+@media (max-width: 520px){
+  :root{ --header-h: 64px; }
 }
