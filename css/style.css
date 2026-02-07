@@ -831,6 +831,10 @@ body{ background: var(--bg); color: var(--text); }
   color: #fff;
 }
 
+@media (max-width: 720px){
+  .site-footer .footer-mailline{ margin-left: 0; }
+}
+
 /* mobile: 로고 아래에 메일라인이 한 줄로 */
 @media (max-width: 720px){
   .site-footer .footer-inner{
