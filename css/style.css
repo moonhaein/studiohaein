@@ -582,6 +582,10 @@ body.portfolio-page .section{
   margin-bottom: 6px;
 }
 
+.nowrap{
+  white-space: nowrap;
+}
+
 /* Responsive */
 @media (max-width: 1100px){
   .about-grid{
@@ -603,6 +607,9 @@ body.portfolio-page .section{
   .about-grid{
     grid-template-columns: 1fr;
     gap: 26px;
+  }
+  .nowrap{ 
+    white-space: normal; 
   }
 }
 
