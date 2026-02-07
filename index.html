@@ -29,7 +29,6 @@
 
       <nav class="nav" aria-label="메인 메뉴">
         <a class="nav-link" href="about.html">ABOUT</a>
-        <a class="nav-link" href="story.html">STORY</a>
         <a class="nav-link" href="portfolio.html">PORTFOLIO</a>
       </nav>
     </div>
@@ -64,6 +63,42 @@
       </a>
     </section>
 
+    <!-- Intro -->
+<section class="intro" aria-label="자기소개">
+  <div class="container intro-inner">
+    <!-- Left: Photo -->
+    <div class="intro-photo">
+      <!-- 나중에 이미지 파일만 바꿔 끼우면 됨 -->
+      <img src="image/profile.jpg" alt="문해인 프로필 사진" />
+    </div>
+
+    <!-- Right: Text -->
+    <div class="intro-text">
+      <h2 class="intro-title">
+        안녕하세요!<br />
+        영상디자이너 문해인입니다.
+      </h2>
+
+      <p class="intro-desc">
+        브랜드의 메시지를 더 선명하게 전달하는 영상과 모션그래픽을 만듭니다.<br />
+        기획부터 편집, 디자인까지 흐름을 정리하고 결과물을 완성도 있게 다듬는 것을 좋아해요.
+      </p>
+    </div>
+  </div>
+</section>
+
+ <!-- WHAT I DO (easy add/remove) -->
+    <section class="section" id="services" aria-label="할 수 있는 일">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">SKILL</h2>
+          <p class="section-desc">________</p>
+        </div>
+
+        <div class="icon-row" id="whatIDoRow" aria-label="가능한 업무 목록"></div>
+      </div>
+    </section>
+
     <!-- PORTFOLIO PREVIEW (6 items, 2 rows) -->
     <section class="section" id="portfolio" aria-label="포트폴리오">
       <div class="container">
@@ -79,48 +114,31 @@
       </div>
     </section>
 
-    <!-- WHAT I DO (easy add/remove) -->
-    <section class="section" id="services" aria-label="할 수 있는 일">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">What I Do</h2>
-          <p class="section-desc">필요한 블록만 추가/삭제할 수 있게 구성했어요.</p>
-        </div>
-
-        <div class="icon-row" id="whatIDoRow" aria-label="가능한 업무 목록"></div>
-      </div>
-    </section>
-
-    <!-- STORY (latest 4) -->
-    <section class="section" id="story" aria-label="스토리">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">Story</h2>
-</div>
-
-        <div class="story-row" id="storyRow" aria-label="최근 스토리 4개"></div>
-      </div>
-    </section>
   </main>
 
   <!-- Footer -->
   <footer class="site-footer" aria-label="푸터">
-    <div class="container footer-inner">
+  <div class="container footer-inner">
+    <div class="footer-left">
       <div class="footer-brand">
         <img src="image/logo.png" alt="스튜디오해인 로고" />
       </div>
-
-      <div class="footer-contact">
-        <p class="footer-copy">저를 필요로 한다면, 편하게 연락 주세요.</p>
-        <a class="footer-email" href="mailto:mhi0308@naver.com">mhi0308@naver.com</a>
-      </div>
-
-      <div class="footer-links" aria-label="외부 링크">
-        <a href="https://blog.naver.com/mhi0308" target="_blank" rel="noopener noreferrer">Blog</a>
-        <a href="https://www.youtube.com/@studiohaein" target="_blank" rel="noopener noreferrer">YouTube</a>
-      </div>
+      <p class="footer-copy">E-MAIL</p>
     </div>
-  </footer>
+
+    <a class="footer-email" href="mailto:mhi0308@naver.com">mhi0308@naver.com</a>
+
+    <div class="footer-links" aria-label="외부 링크">
+      <a href="https://blog.naver.com/mhi0308" target="_blank" rel="noopener noreferrer">Blog</a>
+      <a href="https://www.youtube.com/@studiohaein" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+  </div>
+  <div class="container footer-bottom" aria-label="카피라이트">
+    <p class="footer-copyright">
+      © 2026 STUDIO HAEIN. All rights reserved.
+    </p>
+  </div>
+</footer>
 
   <button id="scrollToTop" title="맨 위로"></button>
 

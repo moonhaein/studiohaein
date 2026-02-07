@@ -56,12 +56,11 @@ const PORTFOLIO = [
 ];
 
 const WHAT_I_DO = [
-  { icon: "🎬", title: "Video Editing", desc: "컷 편집 · 색보정 · 사운드" },
-  { icon: "✨", title: "Motion Graphic", desc: "타이포 · 인포 · 연출" },
-  { icon: "🧩", title: "Content Planning", desc: "기획 · 콘티 · 스토리" },
-  { icon: "🖥️", title: "Design", desc: "썸네일 · 카드뉴스" },
-  { icon: "📣", title: "SNS", desc: "운영 · 캠페인 제작" },
-  // { icon: "🛠️", title: "Web", desc: "간단한 퍼블리싱" },
+  { iconImg: "image/icon_ai.png", title: "Illustrator", desc: "●●●●●" },
+  { iconImg: "image/icon_ps.png", title: "Photoshop", desc: "●●●●○" },
+  { iconImg: "image/icon_pr.png", title: "Premiere Pro", desc: "●●●●●" },
+  { iconImg: "image/icon_ae.png", title: "After Effects", desc: "●●●●○" },
+  { iconImg: "image/icon_4d.png", title: "Cinema 4D", desc: "●●○○○" },
 ];
 
 // Story는 지금은 샘플입니다. (링크를 실제 게시물로 바꾸면 됩니다.)
@@ -147,28 +146,20 @@ function renderPortfolioCards(list, mountEl) {
 
 function renderWhatIDo(list, mountEl) {
   mountEl.innerHTML = list
-    .map((s) => {
-      return `
-        <div class="icon-block" role="listitem">
-          <div class="icon-circle" aria-hidden="true"><span>${escapeHtml(s.icon)}</span></div>
-          <p class="icon-title">${escapeHtml(s.title)}</p>
-          <p class="icon-desc">${escapeHtml(s.desc)}</p>
-        </div>
-      `;
-    })
-    .join("");
-}
+    .map((item) => {
+      // ✅ iconImg(이미지) 있으면 이미지로, 없으면 기존 icon(이모지)로
+      const iconHtml = item.iconImg
+        ? `<img class="skill-icon" src="${escapeHtml(item.iconImg)}" alt="${escapeHtml(item.title)} 아이콘" loading="lazy" />`
+        : `<span class="skill-emoji" aria-hidden="true">${escapeHtml(item.icon || "")}</span>`;
 
-function renderStoryRow(list, mountEl) {
-  mountEl.innerHTML = list
-    .map((s) => {
       return `
-        <a class="story-card" href="${escapeHtml(s.href)}" aria-label="${escapeHtml(s.title)}">
-          <div class="story-media">
-            <img src="${escapeHtml(s.cover)}" alt="" loading="lazy" />
+        <div class="icon-block">
+          <div class="icon-circle">
+            ${iconHtml}
           </div>
-          <h3 class="story-title">${escapeHtml(s.title)}</h3>
-        </a>
+          <h3 class="icon-title">${escapeHtml(item.title)}</h3>
+          <p class="icon-desc">${escapeHtml(item.desc)}</p>
+        </div>
       `;
     })
     .join("");
@@ -260,11 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const whatIDoRow = qs("#whatIDoRow");
   if (whatIDoRow) {
     renderWhatIDo(WHAT_I_DO, whatIDoRow);
-  }
-
-  const storyRow = qs("#storyRow");
-  if (storyRow) {
-    renderStoryRow(STORY.slice(0, 4), storyRow);
   }
 
   // portfolio.html
