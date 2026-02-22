@@ -165,8 +165,8 @@ body:not(.page-home) .nav-link,
 }
 
 .hero-title {
-  font-size: clamp(32px, 5vw, 54px);
-  line-height: 1.05;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.35;
   margin: 0;
 }
 
@@ -611,6 +611,11 @@ body.portfolio-page .section{
   .nowrap{ 
     white-space: normal; 
   }
+}
+
+ .about-ul {
+  margin: 0;
+  padding: 0;
 }
 
 .meta-item {
