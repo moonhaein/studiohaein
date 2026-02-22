@@ -9,6 +9,15 @@
 
 const PORTFOLIO = [
   {
+   id: "d1",
+   title: "CBFEZ 카드뉴스 · 블로그 콘텐츠",
+   desc: "카드뉴스/블로그 콘텐츠 디자인",
+   thumb: "portfolio/portpolio_CBFEZ_thumb.jpg",
+   href: "design_cbfez.html",
+   category: "design",
+   date: "2026-02-01",
+  },
+  {
     id: "p5",
     title: "이야기, 소제",
     desc: "소제동의 과거, 현재 그리고 미래",
@@ -268,4 +277,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
   bindHeaderScroll();
   bindScrollToTop();
+
+  bindDesignDetailNav(); //
 });
+
+function bindDesignDetailNav() {
+  const nextEl = document.querySelector("#navNext");
+  const prevEl = document.querySelector("#navPrev");
+  if (!nextEl || !prevEl) return; // 디자인 상세 페이지에서만 동작
+
+  // 현재 페이지 파일명(예: design_cbfez.html)
+  const current = location.pathname.split("/").pop();
+
+  // design 항목만
+  const designs = PORTFOLIO.filter(p => p.category === "design");
+
+  // 현재 페이지가 designs에서 몇 번째인지 찾기 (href로 매칭)
+  const idx = designs.findIndex(p => (p.href || "") === current);
+
+  // 매칭 못하면 그냥 비활성
+  if (idx === -1) {
+    nextEl.setAttribute("data-disabled", "true");
+    prevEl.setAttribute("data-disabled", "true");
+    nextEl.href = "#";
+    prevEl.href = "#";
+    return;
+  }
+
+  // 너 규칙: 왼쪽 화살표 = 다음, 오른쪽 화살표 = 이전
+  const nextItem = designs[idx + 1];
+  const prevItem = designs[idx - 1];
+
+  if (nextItem) {
+    nextEl.href = nextItem.href;
+    nextEl.removeAttribute("data-disabled");
+  } else {
+    nextEl.href = "#";
+    nextEl.setAttribute("data-disabled", "true");
+  }
+
+  if (prevItem) {
+    prevEl.href = prevItem.href;
+    prevEl.removeAttribute("data-disabled");
+  } else {
+    prevEl.href = "#";
+    prevEl.setAttribute("data-disabled", "true");
+  }
+}
