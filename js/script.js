@@ -9,6 +9,15 @@
 
 const PORTFOLIO = [
   {
+   id: "p6",
+   title: "우송대학교 홍보 숏폼 제작",
+   desc: "영상 콘텐츠 디자인",
+   thumb: "portfolio/portpolio_woosong_thumb.jpg",
+   href: "design_woosong.html",
+   category: "design",
+   date: "2026-02-28",
+  },
+  {
    id: "d1",
    title: "CBFEZ 카드뉴스 · 블로그 콘텐츠",
    desc: "카드뉴스/블로그 콘텐츠 디자인",
@@ -305,8 +314,8 @@ function bindDesignDetailNav() {
   }
 
   // 너 규칙: 왼쪽 화살표 = 다음, 오른쪽 화살표 = 이전
-  const nextItem = designs[idx + 1];
-  const prevItem = designs[idx - 1];
+  const nextItem = designs[idx - 1];
+  const prevItem = designs[idx + 1];
 
   if (nextItem) {
     nextEl.href = nextItem.href;
